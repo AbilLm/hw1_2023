@@ -15,6 +15,7 @@ dp = Dispatcher()
 
 @dp.message(Command('pic'))
 async def send_pic(message: types.Message):
+    # Генератор списка, который создает новый список, включая только те элементы, которые соответствуют условию os.path.isfile, условия в том что он проверяет являются ли они файлами а не подкаталогами.
     files = [f for f in os.listdir('images') if os.path.isfile(os.path.join('images', f))]
 
     if files:
